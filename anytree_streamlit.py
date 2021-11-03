@@ -152,7 +152,7 @@ hobby_selection_list = []
     #if st.button('OK') == True:
         #hobby_selection_list.append(Node_selection().name)
 
-if st.buttion('OK') == True:
+if st.buttion('ボタン') == True:
     #hobby_selection_list.append(Node_selection().name)
    st.write(hobby_selection_list)
         
