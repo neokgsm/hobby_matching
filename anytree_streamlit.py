@@ -139,9 +139,11 @@ st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
 
 
-
-hobby_selection = st.selectbox('What are your hobbies?', [hobby.name for hobby in Hobbies.children])
-
+hobby_selection = Hobbies
+while hobby_selection.children != ():
+    button_selection = st.selectbox('What are your hobbies?', [hobby.name for hobby in hobby_selection.children])
+    hobby_selection = anytree.search.findall_by_attr(Hobbies, button_selection)[0]
+st.write(hobby_selection.name)
 
 
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
