@@ -110,13 +110,13 @@ def partial_search(users, search_by):
 # 自分と共通な趣味を持つ人の userID をリストに格納して返す
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数mode: 絞り込みモード (perfect: 完全一致, partial: 部分一致)
-def search_user(users, mode):
-    search_input = input('趣味:').split(" ")
+def search_user(users, mode, hobby_selection_list):
+    #search_input = input('趣味:').split(" ")
     search_by = []
 
-    for hobby in search_input:
+    for hobby in hobby_selection_list:
         search_by.append(anytree.search.findall_by_attr(hobbies, hobby)[0])
-    print(search_by)
+    st.write(search_by)
     if mode == "perfect":
         #完全一致絞り込み関数へ
         search_result = perfect_search(users, search_by)
@@ -139,12 +139,18 @@ st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
 
 
-hobby_selection = Hobbies
-while hobby_selection.children != ():
-    button_selection = st.selectbox('What are your hobbies?', [hobby.name for hobby in hobby_selection.children])
-    hobby_selection = anytree.search.findall_by_attr(Hobbies, button_selection)[0]
-st.write(hobby_selection.name)
+def Node_selection():
+    hobby_selection = Hobbies
+    while hobby_selection.children != ():
+        button_selection = st.selectbox('What are your hobbies?', [hobby.name for hobby in hobby_selection.children])
+        hobby_selection = anytree.search.findall_by_attr(Hobbies, button_selection)[0]
+    return hobby_selection
+    st.write(hobby_selection.name)
 
+hobby_selection_list = []
+while len(hobby_selection_list) <= 5:
+    if st.button('OK') == True:
+        hobby_selection_list.append(Node_selection().name)
 
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
@@ -152,7 +158,7 @@ mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
 if st.button('Search users') == True:
     st.write(f'{mode} search result:')
-    result = search_user(users, mode, hobby_selection)
+    result = search_user(users, mode, hobby_selection_list)
     #st.write(result)
     st.table(pd.DataFrame({
         'userID':[users[result[a]]['userID'] for a in range(len(result))],
