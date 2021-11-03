@@ -152,9 +152,9 @@ hobby_selection_list = []
     #if st.button('OK') == True:
         #hobby_selection_list.append(Node_selection().name)
 
-if st.buttion('OK', key='hobby_selection_list') == True:
-    #hobby_selection_list.append(Node_selection().name)
-   st.write(hobby_selection_list)
+if st.button('OK', key='hobby_selection_list') == True:
+    hobby_selection_list.append(Node_selection().name)
+st.write(hobby_selection_list)
         
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
