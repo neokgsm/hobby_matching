@@ -36,7 +36,7 @@ FPS = Node("FPS", parent=Game)
 
 ### 趣味をランダムに選択する関数 ###
 def random_hobby_selection():
-    curr_gen = hobbies # Node object
+    curr_gen = Hobbies # Node object
     while curr_gen.children!=():
         curr_gen = curr_gen.children[random.randint(0, len(curr_gen.children)-1)]
     return curr_gen
