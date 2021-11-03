@@ -148,10 +148,14 @@ def Node_selection():
     st.write(hobby_selection.name)
 
 hobby_selection_list = []
-while len(hobby_selection_list) <= 5:
-    if st.button('OK') == True:
-        hobby_selection_list.append(Node_selection().name)
+#while len(hobby_selection_list) <= 5:
+    #if st.button('OK') == True:
+        #hobby_selection_list.append(Node_selection().name)
 
+if st.buttion('OK') == True:
+    hobby_selection_list.append(Node_selection().name)
+print(hobby_selection_list)
+        
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
 
