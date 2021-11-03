@@ -152,7 +152,7 @@ hobby_selection_list = []
     #if st.button('OK') == True:
         #hobby_selection_list.append(Node_selection().name)
 
-if st.buttion('ボタン') == True:
+if st.buttion('OK', key='hobby_selection_list') == True:
     #hobby_selection_list.append(Node_selection().name)
    st.write(hobby_selection_list)
         
@@ -160,7 +160,7 @@ mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
 
 
-if st.button('Search users') == True:
+if st.button('Search users', key = 'search_button') == True:
     st.write(f'{mode} search result:')
     result = search_user(users, mode, hobby_selection_list)
     #st.write(result)
