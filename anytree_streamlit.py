@@ -142,7 +142,7 @@ st.title('Match by hobbies')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
 
-@st.cache
+#@st.cache
 def Node_selection():
     hobby_selection = Hobbies
     while hobby_selection.children != ():
