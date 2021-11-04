@@ -156,7 +156,7 @@ hobby_selection_list = []
     #if st.button('OK') == True:
         #hobby_selection_list.append(Node_selection().name)
 
-@st.cache
+#@st.cache
 if st.button('OK', key='hobby_selection_list') == True:
     hobby_selection_list.append(Node_selection().name)
 st.write(hobby_selection_list)
