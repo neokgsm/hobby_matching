@@ -151,10 +151,12 @@ def Node_selection():
     return hobby_selection
     st.write(hobby_selection.name)
 
-hobby_selection_list = []
-#while len(hobby_selection_list) <= 5:
-    #if st.button('OK') == True:
-        #hobby_selection_list.append(Node_selection().name)
+if hobby_selection_list not in st.session_state:
+    st.session_state.hobby_selection_list = []
+
+while len(hobby_selection_list) <= 5:
+    if st.button('OK') == True:
+        st.session_state.hobby_selection_list.append(Node_selection().name)
 
 #@st.cache
 if st.button('OK', key='hobby_selection_list') == True:
