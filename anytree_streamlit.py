@@ -36,6 +36,7 @@ FPS = Node("FPS", parent=Game)
 
 
 ### 趣味をランダムに選択する関数 ###
+@st.cache
 def random_hobby_selection():
     curr_gen = Hobbies # Node object
     while curr_gen.children!=():
@@ -45,6 +46,7 @@ def random_hobby_selection():
 
 
 ### ランダムなユーザーを生成する関数 ( n人分, 趣味はmax_hobby個まで ) ###
+@st.cache
 def sample(n, max_hobby):
     users = []
     for a in range(n):
@@ -67,6 +69,7 @@ users=sample(100,5)
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数search_by: 指定された趣味のリスト
 # 変数judge: 趣味が合致しているかの判定 (0:合致している, 1:合致していない)
+@st.cache
 def perfect_search(users, search_by):
     search_result_perfect = []
     for a in range(len(users)):
@@ -88,7 +91,7 @@ def perfect_search(users, search_by):
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数search_by: 指定された趣味のリスト
 # 変数judge: 趣味が合致しているかの判定 (0:合致している, 1:合致していない)
-
+@st.cache
 def partial_search(users, search_by):
     search_result_partial = []
     for c in range(len(users)):
@@ -110,6 +113,7 @@ def partial_search(users, search_by):
 # 自分と共通な趣味を持つ人の userID をリストに格納して返す
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数mode: 絞り込みモード (perfect: 完全一致, partial: 部分一致)
+@st.cache
 def search_user(users, mode, hobby_selection_list):
     #search_input = input('趣味:').split(" ")
     search_by = []
@@ -138,7 +142,7 @@ st.title('Match by hobbies')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
 
-
+@st.cache
 def Node_selection():
     hobby_selection = Hobbies
     while hobby_selection.children != ():
@@ -152,6 +156,7 @@ hobby_selection_list = []
     #if st.button('OK') == True:
         #hobby_selection_list.append(Node_selection().name)
 
+@st.cache
 if st.button('OK', key='hobby_selection_list') == True:
     hobby_selection_list.append(Node_selection().name)
 st.write(hobby_selection_list)
