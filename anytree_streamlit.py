@@ -69,7 +69,7 @@ users=sample(100,5)
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数search_by: 指定された趣味のリスト
 # 変数judge: 趣味が合致しているかの判定 (0:合致している, 1:合致していない)
-@st.cache
+#@st.cache
 def perfect_search(users, search_by):
     search_result_perfect = []
     for a in range(len(users)):
@@ -91,7 +91,7 @@ def perfect_search(users, search_by):
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数search_by: 指定された趣味のリスト
 # 変数judge: 趣味が合致しているかの判定 (0:合致している, 1:合致していない)
-@st.cache
+#@st.cache
 def partial_search(users, search_by):
     search_result_partial = []
     for c in range(len(users)):
@@ -113,7 +113,7 @@ def partial_search(users, search_by):
 # 自分と共通な趣味を持つ人の userID をリストに格納して返す
 # 引数users: 絞り込み対象のユーザー, sample(n)で生成したユーザー
 # 引数mode: 絞り込みモード (perfect: 完全一致, partial: 部分一致)
-@st.cache
+#@st.cache
 def search_user(users, mode, hobby_selection_list):
     #search_input = input('趣味:').split(" ")
     search_by = []
@@ -155,13 +155,13 @@ if "selected" not in st.session_state:
     st.session_state.selected = []
 
 while len(st.session_state.selected) <= 5:
-    if st.button('OK') == True:
+    if st.button('OK',key='selected') == True:
         st.session_state.selected.append(Node_selection().name)
 
 #@st.cache
-if st.button('OK', key='selected') == True:
-    st.session_state.selected.append(Node_selection().name)
-st.write(st.session_state.selected)
+#if st.button('OK', key='selected') == True:
+    #st.session_state.selected.append(Node_selection().name)
+#st.write(st.session_state.selected)
         
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
