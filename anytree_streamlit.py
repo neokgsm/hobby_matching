@@ -161,7 +161,7 @@ if "selected" not in st.session_state:
 def select():
     st.session_state.selected.append(Node_selection().name)
 
-st.write("You selected:", st.session_state.name)
+st.write("You selected:", st.session_state.selected)
 st.button("Select", on_click=select)
 #@st.cache
 #if st.button('OK', key='selected') == True:
