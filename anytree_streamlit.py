@@ -151,17 +151,17 @@ def Node_selection():
     return hobby_selection
     st.write(hobby_selection.name)
 
-if hobby_selection_list not in st.session_state:
-    st.session_state.hobby_selection_list = []
+if "selected" not in st.session_state:
+    st.session_state.selected = []
 
-while len(hobby_selection_list) <= 5:
+while len(st.session_state.selected) <= 5:
     if st.button('OK') == True:
-        st.session_state.hobby_selection_list.append(Node_selection().name)
+        st.session_state.selected.append(Node_selection().name)
 
 #@st.cache
-if st.button('OK', key='hobby_selection_list') == True:
-    hobby_selection_list.append(Node_selection().name)
-st.write(hobby_selection_list)
+if st.button('OK', key='selected') == True:
+    st.session_state.selected.append(Node_selection().name)
+st.write(st.session_state.selected)
         
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
