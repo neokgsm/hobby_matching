@@ -154,10 +154,15 @@ def Node_selection():
 if "selected" not in st.session_state:
     st.session_state.selected = []
 
-while len(st.session_state.selected) <= 5:
-    if st.button('OK',key='selected') == True:
-        st.session_state.selected.append(Node_selection().name)
+#while len(st.session_state.selected) <= 5:
+    #if st.button('OK', key = 'selected') == True:
+        #st.session_state.selected.append(Node_selection().name)
 
+def select():
+    st.session_state.selected.append(Node_selection().name)
+
+st.write("You selected:", st.session_state.name)
+st.button("Select", on_click=select)
 #@st.cache
 #if st.button('OK', key='selected') == True:
     #st.session_state.selected.append(Node_selection().name)
