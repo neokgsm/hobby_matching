@@ -14,4 +14,4 @@ def show():
   checked = [k for k, v in st.session_state.items() if v==True]
   st.write(checked)
 
-st.button('Stat...', on_clicked=show)
+st.button('Stat...', on_click=show)
