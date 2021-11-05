@@ -11,4 +11,5 @@ def update():
     st.session_state.ss_list.remove('check1')
 
 
-check1 = st.checkbox('check1', on_change=update)
+check1 = st.checkbox('check1', key='check1')
+check2 = st.checkbox('check2', key='check2')
