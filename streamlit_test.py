@@ -11,4 +11,8 @@ dummy_list = ['a', 'b', 'c']
 
 selected = st.selectbox('pick one', dummy_list)
 
-st.button('add', on_click=append(selected))
+#st.button('add', on_click=append(selected))
+
+add = st.button('add','add a number')
+if add:
+   append(selected)
