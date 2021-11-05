@@ -11,5 +11,7 @@ hobby_list = ['a', 'b', 'c']
 
 selected = st.selectbox('pick one', hobby_list)
 
-st.button('add', on_click=append(selected))
+#st.button('add', on_click=append(selected))
   
+if st.button('add'):
+  append(selected)
