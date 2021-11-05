@@ -15,3 +15,7 @@ def show():
   st.write(checked)
 
 st.button('Stat...', on_click=show)
+
+with open('requirements.txt') as f:
+    s = f.read()
+    st.write(s)
