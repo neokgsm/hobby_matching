@@ -7,11 +7,8 @@ if 'ss_list' not in st.session_state:
 def append(selected):
   st.session_state.ss_list.append(selected)
 
-hobby_list = ['a', 'b', 'c']
+dummy_list = ['a', 'b', 'c']
 
-selected = st.selectbox('pick one', hobby_list)
+selected = st.selectbox('pick one', dummy_list)
 
-#st.button('add', on_click=append(selected))
-  
-if st.button('add'):
-  append(selected)
+st.button('add', on_click=append(selected))
