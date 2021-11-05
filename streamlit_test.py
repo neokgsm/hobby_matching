@@ -4,15 +4,11 @@ st.write(st.session_state)
 if 'ss_list' not in st.session_state:
   st.session_state.ss_list = []
 
-def append(selected):
-  st.session_state.ss_list.append(selected)
+def update():
+  if 'check1' not in st.session_state.ss_list and check1:
+    st.session_state.ss_list.append('check1')
+  elif 'check1' in st.session_state.ss_list and not check1:
+    st.session_state.ss_list.remove('check1')
 
-dummy_list = ['a', 'b', 'c']
 
-selected = st.selectbox('pick one', dummy_list)
-
-#st.button('add', on_click=append(selected))
-
-add = st.button('add','add a number')
-if add:
-   append(selected)
+check1 = st.checkbox('check1', on_change=update)
