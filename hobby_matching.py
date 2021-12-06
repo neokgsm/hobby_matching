@@ -63,18 +63,8 @@ def search_user(users, mode, hobby_selection):
 
 
 
-#users = sample(10,5)
+users = sample(10,5)
 
-users=[{'userID': 0, 'user_hobbies': ['読書', 'ゲーム']},
-    {'userID': 1, 'user_hobbies': ['ゲーム', '旅行', '音楽', '読書']},
-    {'userID': 2, 'user_hobbies': ['音楽', '読書', 'スポーツ', 'ゲーム', '語学']},
-    {'userID': 3, 'user_hobbies': ['音楽', 'スポーツ']},
-    {'userID': 4, 'user_hobbies': ['読書', '語学', 'ゲーム', '音楽', 'スポーツ']},
-    {'userID': 5, 'user_hobbies': ['音楽', '旅行', '読書']},
-    {'userID': 6, 'user_hobbies': ['旅行', '読書', '音楽', 'スポーツ', 'ゲーム']},
-    {'userID': 7, 'user_hobbies': ['ゲーム', '旅行']},
-    {'userID': 8, 'user_hobbies': ['語学', '旅行', '読書', '音楽']},
-    {'userID': 9, 'user_hobbies': ['音楽', '読書']}]
 
 st.title('Match by hobbies')
 #st.header('')
