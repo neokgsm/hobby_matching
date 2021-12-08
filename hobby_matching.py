@@ -70,7 +70,7 @@ def search_user(users, mode, hobby_selection):
 users = sample(10,5,name)
 
 
-st.title('Match by hobbies')
+st.title('Hobby Matching')
 #st.header('')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
