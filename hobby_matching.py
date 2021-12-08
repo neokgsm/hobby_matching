@@ -128,10 +128,11 @@ mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 if st.button('Search users') == True:
     st.write(f'{mode} search result:')
     result = search_user(users, mode, hobby_selection)
-    #st.write(result)
+
+        
     st.table(pd.DataFrame({
-        'Nickname':[users[result[a]]['user_nickname'] for a in range(len(result))],
-        'Hobbies':[str([h.name in for h in users[result[a]]['user_hobbies']])[1:-1].replace("'","") for a in range(len(result))],
-        'Contact':[users[result[a]]['sns_acc'] for a in range(len(result))]
+        'Nickname':[users[a]['user_nickname'] for a in result],
+        'Hobbies':[str([h.name in for h in users[a]['user_hobbies']])[1:-1].replace("'","") for a in result],
+        'Contact':[users[a]['sns_acc'] for a in result]
     }))
      
