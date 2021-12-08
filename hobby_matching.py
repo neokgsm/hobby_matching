@@ -116,10 +116,11 @@ st.write('This is a prototype app!') # markdown
 #}))
 
 
-hobby_selection = st.multiselect('What are your hobbies?',
+selected_str = st.multiselect('What are your hobbies?',
                                  [hobbies.leaves[n].name for n in range(len(hobbies.leaves))],
                                  [])
-#st.write(str(hobby_selection))
+
+hobby_selection = [anytree.search.findall_by_attr(hobbies, str_h)[0] for str_h in selected_str]
 
 
 mode = st.radio("Select search mode", ('Perfect', 'Partial'))
