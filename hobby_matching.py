@@ -42,6 +42,7 @@ def sample(n, max_hobby, hobbies, name):
     users = []
     hobby_count = len(hobbies.leaves)
     for a in range(n):
+        random_num = random.randint(1, max_hobby)
         nickname = f'{name[random.randint(1, len(name)-1)]}'
         users.append({'userID':a,
                       'user_nickname':nickname+f'#{a}',
