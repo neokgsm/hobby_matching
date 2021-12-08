@@ -129,7 +129,10 @@ mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 
 if st.button('Search users') == True:
     st.write(f'{mode} search result:')
-    result = search_user(users, mode, hobby_selection)
+    if hobby_selection == []:
+        result = users
+    else:
+        result = search_user(users, mode, hobby_selection)
 
         
     st.table(pd.DataFrame({
