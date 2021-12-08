@@ -130,7 +130,7 @@ mode = st.radio("Select search mode", ('Perfect', 'Partial'))
 if st.button('Search users') == True:
     st.write(f'{mode} search result:')
     if hobby_selection == []:
-        result = [i for i in range(len(users))]
+        result = [i for i in range(sample_num)]
     else:
         result = search_user(users, mode, hobby_selection)
 
