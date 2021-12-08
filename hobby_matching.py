@@ -101,7 +101,7 @@ def search_user(users, mode, hobby_selection):
 
 
 
-users = sample(10,5,,hobbies,name)
+users = sample(10,5,hobbies,name)
 
 
 st.title('Hobby Matching')
