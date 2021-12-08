@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 
 hobbies = ['スポーツ', '語学', '音楽', '読書', '旅行', 'ゲーム']
+name = ['Taro', 'Hanako', 'John', 'Emma', 'Yuki', 'Michael', 'Shun', 'Sakura', 'Ryo', 'Mizuki']
 
 def sample(n, max_hobby, name):
     users = []
@@ -66,7 +67,7 @@ def search_user(users, mode, hobby_selection):
 
 
 
-users = sample(10,5)
+users = sample(10,5,name)
 
 
 st.title('Match by hobbies')
