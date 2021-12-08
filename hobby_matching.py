@@ -101,14 +101,16 @@ def search_user(users, mode, hobby_selection):
     return search_result
 
 
+sample_num = 100
 
-users = sample(10,5,hobbies,name)
+users = sample(sample_num,5,hobbies,name)
 
 
 st.title('Hobby Matching')
 #st.header('')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
+st.write(f'ユーザー数：{sample_num}')
 
 #st.table(pd.DataFrame({
     #'userID':[users[a]['userID'] for a in range(len(users))],
