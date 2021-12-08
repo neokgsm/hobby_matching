@@ -4,13 +4,16 @@ import pandas as pd
 
 hobbies = ['スポーツ', '語学', '音楽', '読書', '旅行', 'ゲーム']
 
-def sample(n, max_hobby):
+def sample(n, max_hobby, name):
     users = []
     for a in range(n):
         random_num = random.sample(range(len(hobbies)), k=random.randint(1, max_hobby))
-        users.append({'userID':a, 'user_hobbies':[hobbies[b] for b in random_num]})
+        nickname = f'{name[random.randint(1, len(name)-1)]}'
+        users.append({'userID':a,
+                      'user_nickname':nickname+f'#{a}',
+                      'user_hobbies':[hobbies[b] for b in random_num],
+                      'sns_acc':f'@{nickname}_{a}'})
     return users
-
 
 
 def perfect_search(users, search_by):
@@ -88,38 +91,8 @@ if st.button('Search users') == True:
     result = search_user(users, mode, hobby_selection)
     #st.write(result)
     st.table(pd.DataFrame({
-        'userID':[users[result[a]]['userID'] for a in range(len(result))],
-        'Hobbies':[str(users[result[a]]['user_hobbies']) for a in range(len(result))]
+        'Nickname':[users[result[a]]['user_nickname'] for a in range(len(result))],
+        'Hobbies':[str(users[result[a]]['user_hobbies']) for a in range(len(result))],
+        'Contact':[users[result[a]]['sns_acc'] for a in range(len(result))]
     }))
      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
