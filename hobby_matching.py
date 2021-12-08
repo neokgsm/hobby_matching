@@ -132,7 +132,7 @@ if st.button('Search users') == True:
         
     st.table(pd.DataFrame({
         'Nickname':[users[a]['user_nickname'] for a in result],
-        'Hobbies':[str([h.name in for h in users[a]['user_hobbies'][0]])[1:-1].replace("'","") for a in result],
+        'Hobbies':[str([h.name in for h in list(users[a]['user_hobbies'])])[1:-1].replace("'","") for a in result],
         'Contact':[users[a]['sns_acc'] for a in result]
     }))
      
