@@ -93,7 +93,7 @@ if st.button('Search users') == True:
     #st.write(result)
     st.table(pd.DataFrame({
         'Nickname':[users[result[a]]['user_nickname'] for a in range(len(result))],
-        'Hobbies':[str(users[result[a]]['user_hobbies']) for a in range(len(result))],
+        'Hobbies':[str(users[result[a]]['user_hobbies'])[1:-1] for a in range(len(result))],
         'Contact':[users[result[a]]['sns_acc'] for a in range(len(result))]
     }))
      
