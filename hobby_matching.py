@@ -75,10 +75,10 @@ st.title('Match by hobbies')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
 
-st.table(pd.DataFrame({
-    'userID':[users[a]['userID'] for a in range(len(users))],
-    'hobbies':[str(users[a]['user_hobbies']) for a in range(len(users))]
-}))
+#st.table(pd.DataFrame({
+    #'userID':[users[a]['userID'] for a in range(len(users))],
+    #'hobbies':[str(users[a]['user_hobbies']) for a in range(len(users))]
+#}))
 
 
 hobby_selection = st.multiselect('What are your hobbies?', hobbies,[])
