@@ -45,7 +45,7 @@ def sample(n, max_hobby, hobbies, name):
         nickname = f'{name[random.randint(1, len(name)-1)]}'
         users.append({'userID':a,
                       'user_nickname':nickname+f'#{a}',
-                      'user_hobbies':set([hobbies.leaves[random.randint(1, hobby_count-1)] for _ in range(random_num)])}),
+                      'user_hobbies':set([hobbies.leaves[random.randint(1, hobby_count-1)] for _ in range(random_num)]),
                       'sns_acc':f'@{nickname}_{a}'})
     return users
 
