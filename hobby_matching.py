@@ -116,7 +116,9 @@ st.write('This is a prototype app!') # markdown
 #}))
 
 
-hobby_selection = st.multiselect('What are your hobbies?', hobbies,[])
+hobby_selection = st.multiselect('What are your hobbies?',
+                                 [hobbies.leaves[n].name for n in range(len(hobbies.leaves))],
+                                 [])
 #st.write(str(hobby_selection))
 
 
