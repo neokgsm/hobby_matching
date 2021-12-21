@@ -136,7 +136,7 @@ st.write(f'ユーザー数：{sample_num}')
 
 
 selected_str = st.multiselect('What are your hobbies?',
-                                 [hobbies.leaves[n].name for n in range(len(hobbies.leaves))],
+                                 [n.name for n in hobbies.leaves],
                                  [])
 
 hobby_selection = [anytree.search.findall_by_attr(hobbies, str_h)[0] for str_h in selected_str]
