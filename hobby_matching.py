@@ -101,6 +101,23 @@ def search_user(users, mode, hobby_selection):
     return search_result
 
 
+#絞り込み結果のうち、頻繁に表れる趣味を見つける
+def suggest(hobby_selection): 
+    counter = {f'{hobby.name}':0 for hobby in hobbies.leaves}
+
+    for id in result:
+        remaining = []
+        for hobby in list(users[id]['user_hobbies']):
+            if hobby not in hobby_selection:
+                remaining.append(hobby)
+        for hobby in hobbies.leaves:
+            if hobby in remaining:
+                counter[hobby.name] += 1
+
+    counter_sorted =  sorted(counter.items(), key=lambda i: i[1], reverse=True)
+    return counter_sorted
+
+
 sample_num = 100
 
 users = sample(sample_num,5,hobbies,name)
@@ -140,4 +157,6 @@ if st.button('Search users') == True:
         'Hobbies':[str([h.name for h in list(users[a]['user_hobbies'])])[1:-1].replace("'","") for a in result],
         'Contact':[users[a]['sns_acc'] for a in result]
     }))
+    
+    st.write(str(suggest(hobby_selection)))
      
