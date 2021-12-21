@@ -158,5 +158,6 @@ if st.button('Search users') == True:
         'Contact':[users[a]['sns_acc'] for a in result]
     }))
     
-    st.write(str(suggest(hobby_selection)))
-     
+    for i in range(3):
+        st.write(f'{suggest(hobby_selection)[i][0]}, {suggest(hobby_selection)[i][1]}人')
+                 
