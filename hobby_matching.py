@@ -123,7 +123,7 @@ sample_num = 100
 users = sample(sample_num,5,hobbies,name)
 
 
-st.title('Hobby Matching')
+st.title('つながるくん')
 #st.header('')
 st.subheader('同じ趣味をもつ人を探そう！')
 st.write('This is a prototype app!') # markdown
