@@ -102,7 +102,7 @@ def search_user(users, mode, hobby_selection):
 
 
 #絞り込み結果のうち、頻繁に表れる趣味を見つける
-def suggest(hobby_selection): 
+def suggest(hobby_selection, result): 
     counter = {f'{hobby.name}':0 for hobby in hobbies.leaves}
 
     for id in result:
@@ -161,5 +161,5 @@ if st.button('Search users') == True:
     
     st.write('あなたと同じ趣味をもっている人はこんなことにも興味があるようです。')
     for i in range(3):
-        st.write(f'{suggest(hobby_selection)[i][0]} ({suggest(hobby_selection)[i][1]}人)')
+        st.write(f'{suggest(hobby_selection, result)[i][0]} ({suggest(hobby_selection)[i][1]}人)')
                  
