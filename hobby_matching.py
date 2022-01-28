@@ -162,5 +162,5 @@ if st.button('Search users') == True:
     st.write('あなたと同じ趣味をもっている人はこんなことにも興味があるようです。')
     suggestion = suggest(hobby_selection, result)
     for i in range(3):
-        st.write(f'{suggestion)[i][0]} ({suggestion)[i][1]}人)')
+        st.write(f'{suggestion[i][0]} ({suggestion[i][1]}人)')
                  
