@@ -70,15 +70,15 @@ def perfect_search(users, search_by):
 
 def partial_search(users, search_by):
     search_result_partial = []
-    for c in range(len(users)):
+    for user in users:
         judge = 1
-        for d in range(len(search_by)):
-            if search_by[d] in users[c]['user_hobbies']:
+        for hobby in search_by:
+            if hobby in user['user_hobbies']:
                 judge = 0
             #else:
                 #judge = 1
         if judge == 0:
-            search_result_partial.append(users[c]['userID'])
+            search_result_partial.append(user['userID'])
             
     return search_result_partial
 
