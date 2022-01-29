@@ -54,16 +54,16 @@ def sample(n, max_hobby, hobbies, name):
 
 def perfect_search(users, search_by):
     search_result_perfect = []
-    for a in range(len(users)):
+    for user in users:
         judge = 1
-        for b in range(len(search_by)):
-            if search_by[b] in users[a]['user_hobbies']:
+        for hobby in search_by:
+            if hobby in user['user_hobbies']:
                 judge = 0
             else:
                 judge = 1
                 break
         if judge == 0:
-            search_result_perfect.append(users[a]['userID'])
+            search_result_perfect.append(user['userID'])
             
     return search_result_perfect
 
