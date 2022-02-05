@@ -46,7 +46,7 @@ def sample(n, max_hobby, hobbies, name):
         nickname = f'{name[random.randint(0, len(name)-1)]}'
         users.append({'userID':a,
                       'user_nickname':nickname+f'#{a}',
-                      'user_hobbies':set([hobbies.leaves[random.randint(0, hobby_count-1)] for _ in range(random_num)]),
+                      'user_hobbies':list(set([hobbies.leaves[random.randint(0, hobby_count-1)] for _ in range(random_num)])),
                       'sns_acc':f'@{nickname}_{a}'})
     return users
 
@@ -108,7 +108,7 @@ def suggest(hobby_selection, result):
 
     for id in result:
         remaining = []
-        for hobby in list(users[id]['user_hobbies']):
+        for hobby in users[id]['user_hobbies']:
             if hobby not in hobby_selection:
                 remaining.append(hobby)
         for hobby in hobbies.leaves:
