@@ -75,6 +75,7 @@ def partial_search(users, search_by):
         for hobby in search_by:
             if hobby in user['user_hobbies']:
                 judge = 0
+                break
             #else:
                 #judge = 1
         if judge == 0:
